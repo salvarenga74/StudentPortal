@@ -44,7 +44,7 @@ const Login = (props) => {
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
+          <h4 className="card-header bg-dark text-light p-2">Login to School Dashboard</h4>
           <div className="card-body">
             {data ? (
               <p>
@@ -54,16 +54,16 @@ const Login = (props) => {
             ) : (
               <form onSubmit={handleFormSubmit}>
                 <input
-                  className="form-input"
-                  placeholder="Your email"
+                  className="input is-rounded is-large"
+                  placeholder="email address"
                   name="email"
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
                 />
                 <input
-                  className="form-input"
-                  placeholder="******"
+                  className="input is-rounded is-large"
+                  placeholder="password"
                   name="password"
                   type="password"
                   value={formState.password}
