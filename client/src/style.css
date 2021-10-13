@@ -1,1 +1,6 @@
+
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+
+.background-login {
+    background-image: url(./assets/blackboard_bg.jpg);
+}
