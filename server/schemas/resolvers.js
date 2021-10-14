@@ -4,28 +4,11 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    categoryMessages: async (parent, args, context) => {},
-
-    // finish this here above
-
-    users: async () => {
-      return User.find().populate("thoughts");
+    allMessages: async () => {
+      return await MessagePost.find({}).populate("comments");
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username }).populate("thoughts");
-    },
-    thoughts: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return MessagePost.find(params).sort({ createdAt: -1 });
-    },
-    thought: async (parent, { thoughtId }) => {
-      return MessagePost.findOne({ _id: thoughtId });
-    },
-    me: async (parent, args, context) => {
-      if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("thoughts");
-      }
-      throw new AuthenticationError("You need to be logged in!");
+    categoryMessages: async (parent, { classCategory }) => {
+      return await MessagePost.find({ classCategory });
     },
   },
 
@@ -52,26 +35,26 @@ const resolvers = {
 
       return { token, user };
     },
-    addThought: async (parent, { thoughtText }, context) => {
+    addMessage: async (parent, { messageText }, context) => {
       if (context.user) {
-        const thought = await MessagePost.create({
-          thoughtText,
-          thoughtAuthor: context.user.username,
+        const message = await MessagePost.create({
+          messageText,
+          messageAuthor: context.user.username,
         });
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { thoughts: thought._id } }
+          { $addToSet: { messages: message._id } }
         );
 
-        return thought;
+        return message;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    addComment: async (parent, { thoughtId, commentText }, context) => {
+    addComment: async (parent, { messageId, commentText }, context) => {
       if (context.user) {
         return MessagePost.findOneAndUpdate(
-          { _id: thoughtId },
+          { _id: messageId },
           {
             $addToSet: {
               comments: { commentText, commentAuthor: context.user.username },
@@ -85,26 +68,26 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    removeThought: async (parent, { thoughtId }, context) => {
+    removeMessage: async (parent, { messageId }, context) => {
       if (context.user) {
-        const thought = await MessagePost.findOneAndDelete({
-          _id: thoughtId,
-          thoughtAuthor: context.user.username,
+        const message = await MessagePost.findOneAndDelete({
+          _id: messageId,
+          messageAuthor: context.user.username,
         });
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { thoughts: thought._id } }
+          { $pull: { messages: message._id } }
         );
 
-        return thought;
+        return message;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    removeComment: async (parent, { thoughtId, commentId }, context) => {
+    removeComment: async (parent, { messageId, commentId }, context) => {
       if (context.user) {
         return MessagePost.findOneAndUpdate(
-          { _id: thoughtId },
+          { _id: messageId },
           {
             $pull: {
               comments: {
