@@ -1,0 +1,67 @@
+[
+  {
+    "messageText": "Everyone knows that debugging is twice as hard as playing where is Waldo.",
+    "messageAuthor": "Professor Davis",
+    "classCategory": "History"
+  },
+  {
+    "messageText": "The only elephant in Berlin during World War 2 was killed",
+    "messageAuthor": "Professor Davis",
+    "classCategory": "History"
+  },
+  {
+    "messageText": "A polish Bear, Waltick was a chain smoking bear that shoveled artillery to others. he is now a mascot",
+    "messageAuthor": "Professor Davis",
+    "classCategory": "History"
+  },
+  {
+    "messageText": "A pigian received the medal of honor during the french war after being shot 4 times and still delivering the message.",
+    "messageAuthor": "Professor Davis",
+    "classCategory": "History"
+  },
+  {
+    "messageText": "There are many angles in life. But few are the right angles of life.",
+    "messageAuthor": "Ms. Alvarenga",
+    "classCategory": "Math"
+  },
+  {
+    "messageText": "If you have a pizza with radius Z and thickness A, its volume is = Pi*Z*Z*A",
+    "messageAuthor": "Ms. Alvarenga",
+    "classCategory": "Math"
+  },
+  {
+    "messageText": "2,520 is the smallest number that can be exactly divided by all the numbers 1 to 10.",
+    "messageAuthor": "Ms. Alvarenga",
+    "classCategory": "Math"
+  },
+  {
+    "messageText": "Buffalo, Buffalo, Buffalo, Buffalo, Buffalo, Buffalo, Buffalo, Buffalo. Is a grammatically correct sentence.",
+    "messageAuthor": "Dr. Davis the English teacher",
+    "classCategory": "English"
+  },
+  {
+    "messageText": "A new world is added to the dictionary every two hours.",
+    "messageAuthor": "Dr. Duwe",
+    "classCategory": "English"
+  },
+  {
+    "messageText": "It takes 3.5 hours to pronounce the longest work in English. It is the chemical name of Titin (189,819)",
+    "messageAuthor": "Dr. Duwe",
+    "classCategory": "English"
+  },
+  {
+    "messageText": "Earth worms have 5 hearts.",
+    "messageAuthor": "Professor Andrew",
+    "classCategory": "Science"
+  },
+  {
+    "messageText": "According to science, the egg came before the chicken. The first chicken egg was laid by a bird that was not a chicken.",
+    "messageAuthor": "Professor Andrew",
+    "classCategory": "Science"
+  },
+  {
+    "messageText": "Plants emit light during photosynthesis, which we can't see.",
+    "messageAuthor": "Professor Andrew",
+    "classCategory": "Science"
+  }
+]
