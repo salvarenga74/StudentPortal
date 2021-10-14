@@ -30,17 +30,12 @@ const typeDefs = gql`
   }
 
   type Query {
-    users: [User]
-    user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(thoughtId: ID!): Thought
-    me: User
-  }
-
-  type Query {
     allMessages: [MessagePost]
     singleMessage(messageId: ID!): MessagePost
     categoryMessages(classCategory: String): [MessagePost]
+    users: [User]
+    user(username: String!): User
+    me: User
   }
 
   type Mutation {
