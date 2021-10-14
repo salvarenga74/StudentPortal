@@ -1,37 +1,38 @@
 import { split } from '@apollo/client';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SideBar = () => {
     return (
 
         <div className="panel is-primary" style={{maxWidth:250}}>
             <p className="panel-heading">
-                Primary
+                Subjects
             </p>
-            <a className="panel-block is-active">
+            <Link className="panel-block is-active" to="/History">
                 <span className="panel-icon">
                     <i className="fas fa-book" aria-hidden="true"></i>
                 </span>
                 History
-            </a>
-            <a className="panel-block">
+            </Link>
+            <Link className="panel-block" to="/Math">
                 <span className="panel-icon">
                     <i className="fas fa-book" aria-hidden="true"></i>
                 </span>
                 Math
-            </a>
-            <a className="panel-block">
+            </Link>
+            <Link className="panel-block" to="/English">
                 <span className="panel-icon">
                     <i className="fas fa-book" aria-hidden="true"></i>
                 </span>
                 English
-            </a>
-            <a className="panel-block">
+            </Link>
+            <Link className="panel-block" to="/Science">
                 <span className="panel-icon">
                     <i className="fas fa-book" aria-hidden="true"></i>
                 </span>
                 Science
-            </a>
+            </Link>
         </div>
 
     );
