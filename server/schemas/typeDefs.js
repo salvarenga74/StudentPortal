@@ -33,9 +33,7 @@ const typeDefs = gql`
     allMessages: [MessagePost]
     singleMessage(messageId: ID!): MessagePost
     categoryMessages(classCategory: String): [MessagePost]
-    users: [User]
-    user(username: String!): User
-    me: User
+
   }
 
   type Mutation {
