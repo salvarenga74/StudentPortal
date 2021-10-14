@@ -1,9 +1,9 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 
-import MessageList from "../components/MessageList";
+import MessageList from "../components/MessageList/Index";
 import { QUERY_ALL_MESSAGES } from "../utils/queries";
-// import ThoughtForm from "../components/ThoughtForm";
+import MessageForm from "../components/MessageForm";
 
 // import { QUERY_THOUGHTS } from "../utils/queries";
 
