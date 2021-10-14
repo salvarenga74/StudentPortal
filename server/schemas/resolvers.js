@@ -4,30 +4,11 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-<<<<<<< HEAD
-    categoryMessages: async (parent, args, context) => {},
-
-    // finish this here above
-
-    users: async () => {
-      return User.find().populate("thoughts");
-    },
-    user: async (parent, { username }) => {
-      return User.findOne({ username }).populate("thoughts");
-    },
-
-    me: async (parent, args, context) => {
-      if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("thoughts");
-      }
-      throw new AuthenticationError("You need to be logged in!");
-=======
     allMessages: async () => {
       return await MessagePost.find({}).populate("comments");
     },
     categoryMessages: async (parent, { classCategory }) => {
       return await MessagePost.find({ classCategory });
->>>>>>> a02081cce1ab6910d9cdb274e5e19deb71b490e8
     },
   },
 
@@ -54,9 +35,6 @@ const resolvers = {
 
       return { token, user };
     },
-<<<<<<< HEAD
-    addComment: async (parent, { thoughtId, commentText }, context) => {
-=======
     addMessage: async (parent, { messageText }, context) => {
       if (context.user) {
         const message = await MessagePost.create({
@@ -74,7 +52,6 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     addComment: async (parent, { messageId, commentText }, context) => {
->>>>>>> a02081cce1ab6910d9cdb274e5e19deb71b490e8
       if (context.user) {
         return MessagePost.findOneAndUpdate(
           { _id: messageId },
@@ -91,10 +68,6 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-<<<<<<< HEAD
-
-    removeComment: async (parent, { thoughtId, commentId }, context) => {
-=======
     removeMessage: async (parent, { messageId }, context) => {
       if (context.user) {
         const message = await MessagePost.findOneAndDelete({
@@ -112,7 +85,6 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     removeComment: async (parent, { messageId, commentId }, context) => {
->>>>>>> a02081cce1ab6910d9cdb274e5e19deb71b490e8
       if (context.user) {
         return MessagePost.findOneAndUpdate(
           { _id: messageId },
