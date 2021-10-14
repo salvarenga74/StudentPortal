@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 const Header = () => {
   const logout = (event) => {
@@ -13,9 +13,15 @@ const Header = () => {
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
+<<<<<<< HEAD
             <h1 className="m-0">Grace Preparatory School</h1>
           </Link>
           <p className="m-0">Online Student-Teacher Portal</p>
+=======
+            <h1 className="m-0">Enigmatic Anchorage</h1>
+          </Link>
+          <p className="m-0">Academy for the Disabled</p>
+>>>>>>> bae8fca71f8f44ee40d28f9b63fcfb8d328c0b64
         </div>
         <div>
           {Auth.loggedIn() ? (

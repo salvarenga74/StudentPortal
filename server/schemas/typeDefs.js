@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
@@ -6,13 +6,13 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    thoughts: [Thought]!
   }
 
-  type Thought {
+  type MessagePost {
     _id: ID
-    thoughtText: String
-    thoughtAuthor: String
+    messageText: String
+    messageAuthor: String
+    classCategory: String
     createdAt: String
     comments: [Comment]!
   }
@@ -37,13 +37,19 @@ const typeDefs = gql`
     me: User
   }
 
+  type Query {
+    allMessages: [MessagePost]
+    singleMessage(messageId: ID!): MessagePost
+    categoryMessages(classCategory: String): [MessagePost]
+  }
+
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addThought(thoughtText: String!): Thought
-    addComment(thoughtId: ID!, commentText: String!): Thought
-    removeThought(thoughtId: ID!): Thought
-    removeComment(thoughtId: ID!, commentId: ID!): Thought
+    addMessage(messageText: String!): MessagePost
+    addComment(messageId: ID!, commentText: String!): MessagePost
+    removeMessage(messageId: ID!): MessagePost
+    removeComment(messageId: ID!, commentId: ID!): MessagePost
   }
 `;
 
