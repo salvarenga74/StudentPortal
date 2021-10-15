@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
 
-import { ADD_MESSAGE } from '../../utils/mutations';
-import { QUERY_ALL_MESSAGES } from '../../utils/queries';
+import { ADD_MESSAGE } from "../../utils/mutations";
+import { QUERY_ALL_MESSAGES } from "../../utils/queries";
 
 const MessageForm = () => {
   const [formState, setFormState] = useState({
-    messageText: '',
-    messageAuthor: '',
+    messageText: "",
+    messageAuthor: "",
   });
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -19,7 +19,7 @@ const MessageForm = () => {
 
         cache.writeQuery({
           query: QUERY_ALL_MESSAGES,
-          data: { messages: [addMeesage, ...messages] },
+          data: { messages: [addMessage, ...messages] },
         });
       } catch (e) {
         console.error(e);
@@ -36,8 +36,8 @@ const MessageForm = () => {
       });
 
       setFormState({
-        messageText: '',
-        messageAuthor: '',
+        messageText: "",
+        messageAuthor: "",
       });
     } catch (err) {
       console.error(err);
@@ -47,10 +47,10 @@ const MessageForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'messageText' && value.length <= 280) {
+    if (name === "messageText" && value.length <= 280) {
       setFormState({ ...formState, [name]: value });
       setCharacterCount(value.length);
-    } else if (name !== 'messageText') {
+    } else if (name !== "messageText") {
       setFormState({ ...formState, [name]: value });
     }
   };
@@ -61,7 +61,7 @@ const MessageForm = () => {
 
       <p
         className={`m-0 ${
-          characterCount === 280 || error ? 'text-danger' : ''
+          characterCount === 280 || error ? "text-danger" : ""
         }`}
       >
         Character Count: {characterCount}/280
@@ -77,7 +77,7 @@ const MessageForm = () => {
             placeholder="Here's a new message..."
             value={formState.messageText}
             className="form-input w-100"
-            style={{ lineHeight: '1.5' }}
+            style={{ lineHeight: "1.5" }}
             onChange={handleChange}
           ></textarea>
         </div>

@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
+// import React, { useState } from "react";
+// import { useMutation } from "@apollo/client";
 
-import { ADD_THOUGHT } from '../../utils/mutations';
-import { QUERY_THOUGHTS } from '../../utils/queries';
+// import { ADD_THOUGHT } from "../../utils/mutations";
+// import { QUERY_THOUGHTS } from "../../utils/queries";
 
 const ThoughtForm = () => {
   const [formState, setFormState] = useState({
-    thoughtText: '',
-    thoughtAuthor: '',
+    thoughtText: "",
+    classCategory: "",
+    thoughtAuthor: "",
   });
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -36,8 +37,8 @@ const ThoughtForm = () => {
       });
 
       setFormState({
-        thoughtText: '',
-        thoughtAuthor: '',
+        thoughtText: "",
+        thoughtAuthor: "",
       });
     } catch (err) {
       console.error(err);
@@ -47,10 +48,10 @@ const ThoughtForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'thoughtText' && value.length <= 280) {
+    if (name === "thoughtText" && value.length <= 280) {
       setFormState({ ...formState, [name]: value });
       setCharacterCount(value.length);
-    } else if (name !== 'thoughtText') {
+    } else if (name !== "thoughtText") {
       setFormState({ ...formState, [name]: value });
     }
   };
@@ -61,7 +62,7 @@ const ThoughtForm = () => {
 
       <p
         className={`m-0 ${
-          characterCount === 280 || error ? 'text-danger' : ''
+          characterCount === 280 || error ? "text-danger" : ""
         }`}
       >
         Character Count: {characterCount}/280
@@ -77,7 +78,7 @@ const ThoughtForm = () => {
             placeholder="Here's a new thought..."
             value={formState.thoughtText}
             className="form-input w-100"
-            style={{ lineHeight: '1.5' }}
+            style={{ lineHeight: "1.5" }}
             onChange={handleChange}
           ></textarea>
         </div>

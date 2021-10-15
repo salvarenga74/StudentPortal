@@ -1,37 +1,33 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
-export const QUERY_USER = gql`
-  query user($username: String!) {
-    user(username: $username) {
-      _id
-      username
-      email
-      thoughts {
-        _id
-        thoughtText
-        createdAt
-      }
-    }
-  }
-`;
+// export const QUERY_USER = gql`
+//   query user($username: String!) {
+//     user(username: $username) {
+//       _id
+//       username
+//       email
+//     }
+//   }
+// `;
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
+export const QUERY_ALL_MESSAGES = gql`
+  query getMessages {
+    Messages {
       _id
       thoughtText
       thoughtAuthor
       createdAt
+      classCategory
     }
   }
 `;
-
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
+export const QUERY_CATEGORY_MESSAGES = gql`
+  query getAllMessages($classCategory: String!) {
+    message(classCategory: $classCategory) {
       _id
-      thoughtText
-      thoughtAuthor
+      messageText
+      messageAuthor
+      classCategory
       createdAt
       comments {
         _id
@@ -43,18 +39,30 @@ export const QUERY_SINGLE_THOUGHT = gql`
   }
 `;
 
-export const QUERY_ME = gql`
-  query me {
-    me {
+export const QUERY_SINGLE_MESSAGE = gql`
+  query getSingleMessage($messageId: ID!) {
+    message(messageId: $messageId) {
       _id
-      username
-      email
-      thoughts {
+      messageText
+      messageAuthor
+      classCategory
+      createdAt
+      comments {
         _id
-        thoughtText
-        thoughtAuthor
+        commentText
+        commentAuthor
         createdAt
       }
     }
   }
 `;
+
+// export const QUERY_ME = gql`
+//   query me {
+//     me {
+//       _id
+//       username
+//       email
+//     }
+//   }
+// `;
