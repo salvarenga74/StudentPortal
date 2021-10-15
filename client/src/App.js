@@ -9,6 +9,10 @@ import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import AllMessages from "./pages/AllMesages";
+import EnglishMessages from "./pages/English";
+import HistoryMessages from "./pages/History";
+import MathMessages from "./pages/Math";
+import ScienceMessages from "./pages/Science";
 import Signup from "./pages/Signup";
 import LoginPage from "./pages/LoginPage";
 
@@ -60,7 +64,55 @@ function App() {
             </div>
           </div>
         </Route>
-
+        <Route exact path="/English">
+          <div className="columns">
+              <div className="column is-one-third">
+                <div className="container is-pulled-right">
+                  <SideBar />
+                </div>
+              </div>
+              <div className="column">
+                <EnglishMessages />
+              </div>
+            </div>
+        </Route> 
+        <Route exact path="/History">
+          <div className="columns">
+              <div className="column is-one-third">
+                <div className="container is-pulled-right">
+                  <SideBar />
+                </div>
+              </div>
+              <div className="column">
+                <HistoryMessages />
+              </div>
+            </div>
+        </Route> 
+        <Route exact path="/Math">
+          <div className="columns">
+              <div className="column is-one-third">
+                <div className="container is-pulled-right">
+                  <SideBar />
+                </div>
+              </div>
+              <div className="column">
+                <MathMessages />
+              </div>
+            </div>
+        </Route> 
+        <Route exact path="/Science">
+          <div className="columns">
+              <div className="column is-one-third">
+                <div className="container is-pulled-right">
+                  <SideBar />
+                </div>
+              </div>
+              <div className="column">
+                <ScienceMessages />
+              </div>
+            </div>
+        </Route> 
+        
         <Route exact path="/login">
           <LoginPage />
         </Route>
