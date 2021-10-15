@@ -12,7 +12,9 @@ const resolvers = {
     },
     singleMessage: async (parent, {messageId}) => {
       return await MessagePost.findOne({_id: messageId}).populate('comments');
-    }
+    },
+
+  
   },
 
   Mutation: {

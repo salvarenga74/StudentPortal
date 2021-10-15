@@ -18,7 +18,7 @@ const SingleMessage = () => {
     variables: { messageId: messageId },
   });
 
-  const message = data?.message || {};
+  const message = data?.singleMessage || {};
 
   if (loading) {
     return <div>Loading...</div>;
