@@ -11,8 +11,8 @@ import { gql } from "@apollo/client";
 // `;
 
 export const QUERY_ALL_MESSAGES = gql`
-  query getMessages {
-    Messages {
+  query allMessages {
+    MessagePost {
       _id
       thoughtText
       thoughtAuthor
