@@ -7,8 +7,8 @@ import MessageForm from "../components/MessageForm";
 
 const AllMessages = () => {
   const { loading, data } = useQuery(QUERY_ALL_MESSAGES);
-  const messages = data?.messages || [];
-
+  const messages = data?.allMessages || [];
+  console.log(data)
   return (
     <main>
       <div className="flex-row justify-center">
