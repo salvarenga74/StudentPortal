@@ -50,7 +50,6 @@ function App() {
       <Router>
         <Header />
             <Route exact path="/">
-<<<<<<< HEAD
             <div className="columns">
               <div className="column is-one-third">
                 <div className="container is-pulled-right">
@@ -61,9 +60,7 @@ function App() {
                 <Home />
               </div>
             </div>
-=======
               <AllMessages />
->>>>>>> 7900ea6e8394ea59504ff86cb4a674929ccabd33
             </Route>
             <Route exact path="/login">
               <Login />
