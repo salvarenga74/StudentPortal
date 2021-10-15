@@ -57,10 +57,9 @@ function App() {
                 </div>
               </div>
               <div className="column">
-                <Home />
-              </div>
-            </div>
               <AllMessages />
+              </div>
+            </div> 
             </Route>
             <Route exact path="/login">
               <Login />
