@@ -48,11 +48,6 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Header />
-        <div className="columns">
-          <div className="column">
-            <SideBar />
-          </div>
-          <div className="column is-6">
             <Route exact path="/">
             <div className="columns">
               <div className="column is-one-third">
@@ -71,12 +66,6 @@ function App() {
             <Route exact path="/signup">
               <Signup />
             </Route>
-            {/* <Route exact path="/me">
-              <Profile />
-            </Route> */}
-            {/* <Route exact path="/profiles/:username">
-              <Profile />
-            </Route> */}
             <Route exact path="/messages/:messageId">
               <SingleMessage />
             </Route>
