@@ -10,6 +10,9 @@ const resolvers = {
     categoryMessages: async (parent, { classCategory }) => {
       return await MessagePost.find({ classCategory });
     },
+    singleMessage: async (parent, {messageId}) => {
+      return await MessagePost.findOne({_id: messageId}).populate('comments');
+    }
   },
 
   Mutation: {

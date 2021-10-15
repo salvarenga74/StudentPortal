@@ -1,20 +1,29 @@
 import { gql } from "@apollo/client";
 
+// export const QUERY_USER = gql`
+//   query user($username: String!) {
+//     user(username: $username) {
+//       _id
+//       username
+//       email
+//     }
+//   }
+// `;
+
 export const QUERY_ALL_MESSAGES = gql`
   query allMessages {
-    MessagePost {
+    allMessages {
       _id
-      thoughtText
-      thoughtAuthor
+      messageText
+      messageAuthor
       createdAt
       classCategory
     }
   }
 `;
-
 export const QUERY_CATEGORY_MESSAGES = gql`
   query getAllMessages($classCategory: String!) {
-    message(classCategory: $classCategory) {
+    categoryMessages(classCategory: $classCategory) {
       _id
       messageText
       messageAuthor
@@ -32,7 +41,7 @@ export const QUERY_CATEGORY_MESSAGES = gql`
 
 export const QUERY_SINGLE_MESSAGE = gql`
   query getSingleMessage($messageId: ID!) {
-    message(messageId: $messageId) {
+    singleMessage(messageId: $messageId) {
       _id
       messageText
       messageAuthor
@@ -47,3 +56,13 @@ export const QUERY_SINGLE_MESSAGE = gql`
     }
   }
 `;
+
+// export const QUERY_ME = gql`
+//   query me {
+//     me {
+//       _id
+//       username
+//       email
+//     }
+//   }
+// `;

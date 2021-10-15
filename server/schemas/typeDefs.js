@@ -14,7 +14,7 @@ const typeDefs = gql`
     messageAuthor: String
     classCategory: String
     createdAt: String
-    comments: [Comment]!
+    comments: [Comment]
   }
 
   type Comment {
