@@ -8,7 +8,8 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
+import AllMessages from "./pages/AllMesages";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 // import SingleThought from "./pages/SingleThought";
@@ -49,6 +50,7 @@ function App() {
       <Router>
         <Header />
             <Route exact path="/">
+<<<<<<< HEAD
             <div className="columns">
               <div className="column is-one-third">
                 <div className="container is-pulled-right">
@@ -59,6 +61,9 @@ function App() {
                 <Home />
               </div>
             </div>
+=======
+              <AllMessages />
+>>>>>>> 7900ea6e8394ea59504ff86cb4a674929ccabd33
             </Route>
             <Route exact path="/login">
               <Login />
