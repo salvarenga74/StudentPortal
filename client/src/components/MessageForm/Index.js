@@ -59,7 +59,7 @@ const MessageForm = () => {
 
   return (
     <div>
-      <h3>Do you need help with an assigment?</h3>
+      <h3>Do you need help with an assignment?</h3>
 
       <p
         className={`m-0 ${
@@ -73,47 +73,55 @@ const MessageForm = () => {
         className="flex-row justify-center justify-space-between-md align-center"
         onSubmit={handleFormSubmit}
       >
-
-
-
-            <div className="field">
-              <label className="label">Name</label>
-              <div className="control">
-                <input className="input" type="text" name="messageAuthor" placeholder="Text input" value={formState.messageAuthor} onChange={handleChange}/>
-              </div>
+        <div className="field">
+          <label className="label">Name</label>
+          <div className="control">
+            <input
+              className="input"
+              type="text"
+              name="messageAuthor"
+              placeholder="Text input"
+              value={formState.messageAuthor}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+        <div className="field">
+          <label className="label" onChange={handleChange}>
+            Select Class
+          </label>
+          <div className="control">
+            <div className="select">
+              <select value={formState.classCategory}>
+                <option value="English">English</option>
+                <option value="History">History</option>
+                <option value="Science">Science</option>
+                <option value="Math">Math</option>
+              </select>
             </div>
-            <div className="field">
-              <label className="label" onChange={handleChange}>Select Class</label>
-              <div className="control">
-                <div className="select">
-                  <select value={formState.classCategory} >
-                    <option value="English">English</option>
-                    <option value="History">History</option>
-                    <option value="Science">Science</option>
-                    <option value="Math">Math</option>
-                  </select>
-                </div>
-              </div>
-            </div>
+          </div>
+        </div>
 
-            <div className="field">
-              <label className="label">Message</label>
-              <div className="control">
-                <textarea className="textarea" placeholder="Textarea" value={formState.messageText} onChange={handleChange}></textarea>
-              </div>
-            </div>
+        <div className="field">
+          <label className="label">Message</label>
+          <div className="control">
+            <textarea
+              className="textarea"
+              placeholder="Textarea"
+              value={formState.messageText}
+              onChange={handleChange}
+            ></textarea>
+          </div>
+        </div>
 
-
-            <div className="field is-grouped">
-              <div className="control">
-                <button className="button is-link">Submit</button>
-              </div>
-              <div className="control">
-                <button className="button is-link is-light">Cancel</button>
-              </div>
-            </div>
-
-
+        <div className="field is-grouped">
+          <div className="control">
+            <button className="button is-link">Submit</button>
+          </div>
+          <div className="control">
+            <button className="button is-link is-light">Cancel</button>
+          </div>
+        </div>
 
         <div className="col-12 col-lg-3">
           <button className="btn btn-primary btn-block py-3" type="submit">

@@ -1,6 +1,9 @@
 import { gql } from "@apollo/client";
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> aa6ef0ba82c125ad9fc54c502ff422026d17b320
 export const QUERY_ALL_MESSAGES = gql`
   query allMessages {
     allMessages {
