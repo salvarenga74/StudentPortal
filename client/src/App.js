@@ -47,19 +47,12 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-<<<<<<< HEAD
-          <Header />
-        
-          
-          
-=======
         <Header />
         <div className="columns">
           <div className="column">
             <SideBar />
           </div>
           <div className="column is-6">
->>>>>>> cb4033fe7fca3a7ec25a99f6dad96899d77d6789
             <Route exact path="/">
             <div className="columns">
               <div className="column is-one-third">
@@ -78,10 +71,6 @@ function App() {
             <Route exact path="/signup">
               <Signup />
             </Route>
-<<<<<<< HEAD
-            <Route exact path="/thoughts/:thoughtId">
-              <SingleThought />
-=======
             {/* <Route exact path="/me">
               <Profile />
             </Route> */}
@@ -90,7 +79,6 @@ function App() {
             </Route> */}
             <Route exact path="/messages/:messageId">
               <SingleMessage />
->>>>>>> cb4033fe7fca3a7ec25a99f6dad96899d77d6789
             </Route>
           <Footer />
       </Router>
