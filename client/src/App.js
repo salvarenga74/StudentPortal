@@ -8,12 +8,10 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-// import Home from "./pages/Home";
 import AllMessages from "./pages/AllMesages";
 import Signup from "./pages/Signup";
-import Login from "./pages/Login";
-// import SingleThought from "./pages/SingleThought";
-// import Profile from "./pages/Profile";
+import LoginPage from "./pages/LoginPage";
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./style.css";
@@ -49,28 +47,33 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Header />
-            <Route exact path="/">
-            <div className="columns">
-              <div className="column is-one-third">
-                <div className="container is-pulled-right">
-                  <SideBar/>
-                </div>
+
+        <Route exact path="/">
+          <div className="columns">
+            <div className="column is-one-third">
+              <div className="container is-pulled-right">
+                <SideBar />
               </div>
-              <div className="column">
+            </div>
+            <div className="column">
               <AllMessages />
-              </div>
-            </div> 
-            </Route>
-            <Route exact path="/login">
-              <Login />
-            </Route>
-            <Route exact path="/signup">
-              <Signup />
-            </Route>
-            <Route exact path="/messages/:messageId">
-              <SingleMessage />
-            </Route>
-          <Footer />
+            </div>
+          </div>
+        </Route>
+
+        <Route exact path="/login">
+          <LoginPage />
+        </Route>
+
+        <Route exact path="/signup">
+          <Signup />
+        </Route>
+
+        <Route exact path="/messages/:messageId">
+          <SingleMessage />
+        </Route>
+
+        <Footer />
       </Router>
     </ApolloProvider>
   );
