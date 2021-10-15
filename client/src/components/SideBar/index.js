@@ -33,6 +33,12 @@ const SideBar = () => {
                 </span>
                 Science
             </Link>
+            <Link className="panel-block" to="/AllMesages">
+                <span className="panel-icon">
+                    <i className="fas fa-book" aria-hidden="true"></i>
+                </span>
+                All Messages
+            </Link>
         </div>
 
     );

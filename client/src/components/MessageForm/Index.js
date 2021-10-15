@@ -1,26 +1,25 @@
-// import React, { useState } from "react";
-// import { useMutation } from "@apollo/client";
+import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
 
-// import { ADD_THOUGHT } from "../../utils/mutations";
-// import { QUERY_THOUGHTS } from "../../utils/queries";
+import { ADD_MESSAGE } from "../../utils/mutations";
+import { QUERY_ALL_MESSAGES } from "../../utils/queries";
 
-const ThoughtForm = () => {
+const MessageForm = () => {
   const [formState, setFormState] = useState({
-    thoughtText: "",
-    classCategory: "",
-    thoughtAuthor: "",
+    messageText: "",
+    messageAuthor: "",
   });
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addThought, { error }] = useMutation(ADD_THOUGHT, {
+  const [addMessage, { error }] = useMutation(ADD_MESSAGE, {
     // All returning data from Apollo Client queries/mutations return in a `data` field, followed by the the data returned by the request
-    update(cache, { data: { addThought } }) {
+    update(cache, { data: { addMessage } }) {
       try {
-        const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
+        const { messages } = cache.readQuery({ query: QUERY_ALL_MESSAGES });
 
         cache.writeQuery({
-          query: QUERY_THOUGHTS,
-          data: { thoughts: [addThought, ...thoughts] },
+          query: QUERY_ALL_MESSAGES,
+          data: { messages: [addMessage, ...messages] },
         });
       } catch (e) {
         console.error(e);
@@ -32,13 +31,13 @@ const ThoughtForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await addThought({
+      const { data } = await addMessage({
         variables: { ...formState },
       });
 
       setFormState({
-        thoughtText: "",
-        thoughtAuthor: "",
+        messageText: "",
+        messageAuthor: "",
       });
     } catch (err) {
       console.error(err);
@@ -48,10 +47,10 @@ const ThoughtForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === "thoughtText" && value.length <= 280) {
+    if (name === "messageText" && value.length <= 280) {
       setFormState({ ...formState, [name]: value });
       setCharacterCount(value.length);
-    } else if (name !== "thoughtText") {
+    } else if (name !== "messageText") {
       setFormState({ ...formState, [name]: value });
     }
   };
@@ -75,8 +74,8 @@ const ThoughtForm = () => {
         <div className="col-12">
           <textarea
             name="thoughtText"
-            placeholder="Here's a new thought..."
-            value={formState.thoughtText}
+            placeholder="Here's a new message..."
+            value={formState.messageText}
             className="form-input w-100"
             style={{ lineHeight: "1.5" }}
             onChange={handleChange}
@@ -84,9 +83,9 @@ const ThoughtForm = () => {
         </div>
         <div className="col-12 col-lg-9">
           <input
-            name="thoughtAuthor"
+            name="messageAuthor"
             placeholder="Add your name to get credit for the thought..."
-            value={formState.thoughtAuthor}
+            value={formState.messageAuthor}
             className="form-input w-100"
             onChange={handleChange}
           />
@@ -107,4 +106,4 @@ const ThoughtForm = () => {
   );
 };
 
-export default ThoughtForm;
+export default MessageForm;
