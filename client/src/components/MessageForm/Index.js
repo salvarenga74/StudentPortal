@@ -57,7 +57,7 @@ const MessageForm = () => {
 
   return (
     <div>
-      <h3>What's on your techy mind?</h3>
+      <h3>Do you need help with an assignment?</h3>
 
       <p
         className={`m-0 ${
