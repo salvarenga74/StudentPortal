@@ -21,6 +21,7 @@ import Footer from "./components/Footer";
 import "./style.css";
 import SideBar from "./components/SideBar";
 import SingleMessage from "./pages/SingleMessage";
+import img1 from "./assets/Dallas-TX.jpg";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -50,8 +51,11 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+    <div style={{backgroundColor: "#DFDEDD", backgroundImage: "url(" + img1 + ")",
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'}}>
         <Header />
-
         <Route exact path="/">
           <div className="columns">
             <div className="column is-one-third">
@@ -126,6 +130,7 @@ function App() {
         </Route>
 
         <Footer />
+    </div>
       </Router>
     </ApolloProvider>
   );
