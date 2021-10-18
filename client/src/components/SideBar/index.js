@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const SideBar = () => {
     return (
 
-        <div className="panel is-warning" style={{maxWidth:250}}>
+        <div className="panel is-warning" style={{maxWidth:250, background: "white", border:"3px"}}>
             <p className="panel-heading">
                 Subjects
             </p>

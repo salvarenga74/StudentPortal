@@ -58,8 +58,8 @@ const MessageForm = () => {
   };
 
   return (
-    <div>
-      <h3>Do you need help with an assigment?</h3>
+    <div style={{background: "white", textAlign: "left", paddingLeft: "10px", border: "10px"}}>
+      <h3>Do you need help with an assignment?</h3>
 
       <p
         className={`m-0 ${
@@ -115,7 +115,7 @@ const MessageForm = () => {
 
 
 
-        <div className="col-12 col-lg-3">
+        <div className="col-12 col-lg-3" style={{paddingBottom: "10px"}}>
           <button className="btn btn-primary btn-block py-3" type="submit">
             Add Thought
           </button>
