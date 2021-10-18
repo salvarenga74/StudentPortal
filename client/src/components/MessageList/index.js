@@ -15,7 +15,7 @@ const MessageList = ({
 
   return (
     <div>
-      {showTitle && <h3>{title}</h3>}
+      {showTitle && <h3 className="list-title">{title}</h3>}
       {messages &&
         messages.map((message) => (
           <div key={message._id} className="card mb-3">

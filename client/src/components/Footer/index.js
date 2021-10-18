@@ -10,7 +10,7 @@ const Footer = () => {
         {location.pathname !== '/' && (
           <button
             style={{borderRadius:"5px",  }}
-            className="btn btn-dark mb-3"
+            className="button is-rounded"
             onClick={() => history.goBack()}
           >
             &larr; Go Back
