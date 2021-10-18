@@ -33,7 +33,7 @@ const EnglishMessages = () => {
           ) : (
             <MessageList
               messages={messages}
-              title="Some Feed for Message(s)..."
+              title="Posts from your English Class"
             />
           )}
         </div>

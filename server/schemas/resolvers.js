@@ -44,14 +44,13 @@ const resolvers = {
       if (context.user) {
         const message = await MessagePost.create({
           messageText,
-          classCategory,
           messageAuthor: context.user.username,
         });
 
-        // await User.findOneAndUpdate(
-        //   { _id: context.user._id },
-        //   { $addToSet: { messages: message._id } }
-        // );
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { messages: message._id } }
+        );
 
         return message;
       }

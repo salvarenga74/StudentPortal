@@ -1,8 +1,90 @@
 
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+
+:root {
+    --mainBlue: #3abeff;
+    --secondaryBlue: #3abeff;
+    --mainRed: #f95738;
+    --mainYellow: #ffcf56;
+    --mainGreen: #28965a;
+    --headerFont: 'Quicksand', sans-serif;
+    --textFont: 'Merriweather', serif;
+  }
 
 .background-login {
     background-image: url(./assets/blackboard_bg.jpg);
 }
 
+h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 64px;
+    color: var(--mainBlue)
+}
 
+h3 {
+    font-family: var(--headerFont);
+    font-size: 32px;
+}
+
+#sub-heading {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 32px;
+    color: var(--mainYellow)
+}
+
+#username-display {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    color: var(--mainYellow)
+}
+
+.button {
+    background-color: var(--mainYellow);
+}
+
+
+.panel-heading {
+    background-color: var(--mainYellow);
+    font-family: var(--headerFont)
+}
+
+.panel-block {
+    font-family: var(--headerFont);
+    color: var(--mainYellow)
+}
+
+.card-header {
+    font-family: var(--headerFont);
+    background-color: var(--mainYellow);
+
+}
+
+.card-body {
+    font-family: var(--textFont);
+}
+
+p {
+    font-family: var(--textFont);
+}
+
+.label {
+    font-family: var(--headerFont);
+}
+
+select, option {
+    font-family: var(--headerFont);
+}
+
+.comment-link {
+    font-family: var(--headerFont);
+}
+
+textarea {
+    font-family: var(--textFont);
+}
+
+input {
+    font-family: var(--textFont);
+}

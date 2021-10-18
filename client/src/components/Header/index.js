@@ -15,24 +15,24 @@ const Header = () => {
           <Link className="text-light" to="/">
             <h1 className="m-0">Grace Preparatory School</h1>
           </Link>
-          <p className="m-0">Online Student-Teacher Portal</p>
+          <p className="m-0" id="sub-heading">Online Student-Teacher Portal</p>
         </div>
         <div>
           {Auth.loggedIn() ? (
             <>
-              <Link className="button is-warning is-rounded" to="/me">
-                {Auth.getProfile().data.username}'s profile
-              </Link>
-              <button className="button is-warning is-rounded" onClick={logout}>
+              <p id="username-display">
+                Logged in as {Auth.getProfile().data.username}
+              </p>
+              <button className="button is-rounded" onClick={logout}>
                 Logout
               </button>
             </>
           ) : (
             <>
-              <Link className="button is-warning is-rounded is-medium" to="/login">
+              <Link className="button is-rounded is-medium" to="/login">
                 Login
               </Link>
-              <Link className="button is-warning is-rounded is-medium" to="/signup">
+              <Link className="button is-rounded is-medium" to="/signup">
                 Signup
               </Link>
             </>

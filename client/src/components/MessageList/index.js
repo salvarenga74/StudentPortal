@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+
+
 const MessageList = ({
   messages,
   title,
@@ -17,7 +19,7 @@ const MessageList = ({
       {messages &&
         messages.map((message) => (
           <div key={message._id} className="card mb-3">
-            <h4 className="card-header bg-primary text-light p-2 m-0">
+            <h4 className="card-header">
               {showUsername ? (
                 <Link
                   className="text-light"
@@ -25,7 +27,7 @@ const MessageList = ({
                 >
                   {message.messageAuthor} <br />
                   <span style={{ fontSize: "1rem" }}>
-                    had this message on {message.createdAt}
+                    posted this in {message.classCategory} Class on {message.createdAt}
                   </span>
                 </Link>
               ) : (
@@ -36,14 +38,14 @@ const MessageList = ({
                 </>
               )}
             </h4>
-            <div className="card-body bg-light p-2">
+            <div className="card-body p-2">
               <p>{message.messageText}</p>
             </div>
-            <Link
-              className="btn btn-primary btn-block btn-squared"
+            <Link className="comment-link"
+              
               to={`/messages/${message._id}`}
             >
-              Join the discussion on this message.
+              Join the discussion on this post.
             </Link>
           </div>
         ))}
