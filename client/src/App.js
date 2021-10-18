@@ -58,7 +58,7 @@ function App() {
         <Header />
         <Route exact path="/">
           <div className="columns">
-            <div className="column is-one-third">
+            <div className="column is-one-third" style={{display: "flex"}}>
               <div className="container is-pulled-right">
                 <SideBar />
               </div>
@@ -94,7 +94,7 @@ function App() {
         </Route> 
         <Route exact path="/Math">
           <div className="columns">
-              <div className="column is-3">
+              <div className="column is-one-third">
                 <div className="container is-pulled-right">
                   <SideBar />
                 </div>

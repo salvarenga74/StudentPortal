@@ -88,3 +88,7 @@ textarea {
 input {
     font-family: var(--textFont);
 }
+
+.list-title {
+    color: var(--mainYellow)
+}
