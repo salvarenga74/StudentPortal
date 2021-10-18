@@ -9,11 +9,11 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="has-background-grey text-light mb-4 py-3 flex-row align-center">
+    <header className=" text-light mb-4 py-3 flex-row align-center" style={{backgroundColor:"grey"}}>
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
-            <h1 className="m-0">Grace Preparatory School</h1>
+            <h1 className="m-0" style={{textSizeAdjust:"20px"}}>Grace Preparatory School: Home Directory</h1>
           </Link>
           <p className="m-0">Online Student-Teacher Portal</p>
         </div>

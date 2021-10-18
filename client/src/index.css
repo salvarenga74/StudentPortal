@@ -350,3 +350,11 @@ END NORMALIZE CSS
   --mainYellow: #ffcf56;
   --mainGreen: #28965a;
 }
+
+.img1 {
+  background-image: url('../src/assets/Dallas-TX.jpg');
+  min-height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
