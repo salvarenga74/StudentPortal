@@ -8,7 +8,7 @@ const MessageForm = () => {
   const [formState, setFormState] = useState({
     messageText: "",
     messageAuthor: "",
-    classCategory: "",
+    classCategory: "English",
   });
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -16,11 +16,11 @@ const MessageForm = () => {
     // All returning data from Apollo Client queries/mutations return in a `data` field, followed by the the data returned by the request
     update(cache, { data: { addMessage } }) {
       try {
-        const { messages } = cache.readQuery({ query: QUERY_ALL_MESSAGES });
-
+        const { allMessages } = cache.readQuery({ query: QUERY_ALL_MESSAGES });
+        console.log(allMessages)
         cache.writeQuery({
           query: QUERY_ALL_MESSAGES,
-          data: { messages: [addMessage, ...messages] },
+          data: { allMessages: [addMessage, ...allMessages] },
         });
       } catch (e) {
         console.error(e);
@@ -30,16 +30,16 @@ const MessageForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    console.log(formState)
     try {
       const { data } = await addMessage({
         variables: { ...formState },
       });
-      console.log(data)
+      console.log({data})
       setFormState({
         messageText: "",
         messageAuthor: "",
-        classCategory: "",
+        classCategory: "English",
       });
     } catch (err) {
       console.error(err);

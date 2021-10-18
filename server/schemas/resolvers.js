@@ -40,10 +40,11 @@ const resolvers = {
 
       return { token, user };
     },
-    addMessage: async (parent, { messageText }, context) => {
+    addMessage: async (parent, { messageText, classCategory }, context) => {
       if (context.user) {
         const message = await MessagePost.create({
           messageText,
+          classCategory,
           messageAuthor: context.user.username,
         });
 
