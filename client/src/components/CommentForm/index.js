@@ -41,7 +41,7 @@ const CommentForm = ({ messageId }) => {
 
   return (
     <div>
-      <h4>What are your thoughts on this thought?</h4>
+      <h4>Add comments to post</h4>
 
       {Auth.loggedIn() ? (
         <>
@@ -69,7 +69,7 @@ const CommentForm = ({ messageId }) => {
             </div>
 
             <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
+              <button className="button is-rounded" type="submit">
                 Add Comment
               </button>
             </div>

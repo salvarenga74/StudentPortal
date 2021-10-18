@@ -24,20 +24,19 @@ const SingleMessage = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="my-3">
-      <h3 className="card-header bg-dark text-light p-2 m-0">
-        {message.messageAuthor} <br />
-        <span style={{ fontSize: "1rem" }}>
-          had this message on {message.createdAt}
+    <div>
+      <h3 className="card-header">
+        <span className="card-header-title">{message.messageAuthor}</span> <br/>
+        <span className="card-content" style={{ fontSize: "1rem" }}>
+          created this post on {message.createdAt}
         </span>
       </h3>
       <div className="bg-light py-4">
         <blockquote
-          className="p-4"
+          className="box"
           style={{
             fontSize: "1.5rem",
             fontStyle: "italic",
-            border: "2px dotted #1a1a1a",
             lineHeight: "1.5",
           }}
         >
@@ -45,10 +44,10 @@ const SingleMessage = () => {
         </blockquote>
       </div>
 
-      <div className="my-5">
+      <div className="box">
         <CommentList comments={message.comments} />
       </div>
-      <div className="m-3 p-4" style={{ border: "1px dotted #1a1a1a" }}>
+      <div className="box">
         <CommentForm messageId={message._id} />
       </div>
     </div>

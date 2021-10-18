@@ -11,14 +11,14 @@ const AllMessages = () => {
   console.log(data)
   return (
     <main>
-      <div className="flex-row justify-center" style={{backgroundBlendMode: "color: blue"}}>
+      <div className="flex-row justify-center box pr-3 mr-6" style={{backgroundBlendMode: "color: blue"}}>
         <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: "1px dotted #1a1a1a" }}
+          className="box"
+          
         >
           <MessageForm />
         </div>
-        <div className="col-12 col-md-8 mb-3">
+        <div className="box pr-3 mr-6">
           {loading ? (
             <div>Loading...</div>
           ) : (
