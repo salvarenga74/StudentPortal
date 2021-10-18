@@ -6,7 +6,7 @@ import { QUERY_CATEGORY_MESSAGES } from "../utils/queries";
 import MessageForm from "../components/MessageForm";
 
 const EnglishMessages = () => {
-    const { classCategory } = useParams();
+    // const { classCategory } = useParams();
   const { loading, data } = useQuery(QUERY_CATEGORY_MESSAGES, {
     // pass URL parameter
     variables: { classCategory: "English" },
@@ -33,7 +33,7 @@ const EnglishMessages = () => {
           ) : (
             <MessageList
               messages={messages}
-              title="Some Feed for Message(s)..."
+              title="Posts from your English Class"
             />
           )}
         </div>

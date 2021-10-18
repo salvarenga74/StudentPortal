@@ -40,7 +40,7 @@ const resolvers = {
 
       return { token, user };
     },
-    addMessage: async (parent, { messageText }, context) => {
+    addMessage: async (parent, { messageText, classCategory }, context) => {
       if (context.user) {
         const message = await MessagePost.create({
           messageText,
@@ -48,10 +48,10 @@ const resolvers = {
           messageAuthor: context.user.username,
         });
 
-        // await User.findOneAndUpdate(
-        //   { _id: context.user._id },
-        //   { $addToSet: { messages: message._id } }
-        // );
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { messages: message._id } }
+        );
 
         return message;
       }

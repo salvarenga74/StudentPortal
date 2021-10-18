@@ -94,7 +94,7 @@ function App() {
         </Route> 
         <Route exact path="/Math">
           <div className="columns">
-              <div className="column is-one-third">
+              <div className="column is-3">
                 <div className="container is-pulled-right">
                   <SideBar />
                 </div>

@@ -33,7 +33,7 @@ const ScienceMessages = () => {
           ) : (
             <MessageList
               messages={messages}
-              title="Some Feed for Message(s)..."
+              title="Posts from your Science Class"
             />
           )}
         </div>

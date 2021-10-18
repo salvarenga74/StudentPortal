@@ -8,7 +8,7 @@ const MessageForm = () => {
   const [formState, setFormState] = useState({
     messageText: "",
     messageAuthor: "",
-    classCategory: "",
+    classCategory: "English",
   });
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -16,11 +16,11 @@ const MessageForm = () => {
     // All returning data from Apollo Client queries/mutations return in a `data` field, followed by the the data returned by the request
     update(cache, { data: { addMessage } }) {
       try {
-        const { messages } = cache.readQuery({ query: QUERY_ALL_MESSAGES });
-
+        const { allMessages } = cache.readQuery({ query: QUERY_ALL_MESSAGES });
+        console.log(allMessages)
         cache.writeQuery({
           query: QUERY_ALL_MESSAGES,
-          data: { messages: [addMessage, ...messages] },
+          data: { allMessages: [addMessage, ...allMessages] },
         });
       } catch (e) {
         console.error(e);
@@ -30,16 +30,16 @@ const MessageForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    console.log(formState)
     try {
       const { data } = await addMessage({
         variables: { ...formState },
       });
-
+      console.log({data})
       setFormState({
         messageText: "",
         messageAuthor: "",
-        classCategory: "",
+        classCategory: "English",
       });
     } catch (err) {
       console.error(err);
@@ -49,7 +49,7 @@ const MessageForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === "messageText" && value.length <= 280) {
+    if (name === "messageText" && value.length <= 500) {
       setFormState({ ...formState, [name]: value });
       setCharacterCount(value.length);
     } else if (name !== "messageText") {
@@ -63,10 +63,10 @@ const MessageForm = () => {
 
       <p
         className={`m-0 ${
-          characterCount === 280 || error ? "text-danger" : ""
+          characterCount === 500 || error ? "text-danger" : ""
         }`}
       >
-        Character Count: {characterCount}/280
+        Character Count: {characterCount}/500
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
       <form
@@ -83,10 +83,10 @@ const MessageForm = () => {
               </div>
             </div>
             <div className="field">
-              <label className="label" onChange={handleChange}>Select Class</label>
+              <label className="label">Select Class</label>
               <div className="control">
                 <div className="select">
-                  <select value={formState.classCategory} >
+                  <select name="classCategory" defaultValue={formState.classCategory} onChange={handleChange}>
                     <option value="English">English</option>
                     <option value="History">History</option>
                     <option value="Science">Science</option>
@@ -99,32 +99,30 @@ const MessageForm = () => {
             <div className="field">
               <label className="label">Message</label>
               <div className="control">
-                <textarea className="textarea" placeholder="Textarea" value={formState.messageText} onChange={handleChange}></textarea>
+                <textarea type="text" className="textarea" placeholder="Enter post here" name="messageText" value={formState.messageText} onChange={handleChange}></textarea>
               </div>
             </div>
 
 
             <div className="field is-grouped">
-              <div className="control">
-                <button className="button is-link">Submit</button>
+              <div className="control" style={{paddingBottom: "10px"}}>
+                <button className="button is-rounded" type="submit">Submit</button>
               </div>
-              <div className="control">
-                <button className="button is-link is-light">Cancel</button>
-              </div>
-            </div>
-
-
-
-        <div className="col-12 col-lg-3" style={{paddingBottom: "10px"}}>
-          <button className="btn btn-primary btn-block py-3" type="submit">
-            Add Thought
-          </button>
-        </div>
-        {error && (
+              {error && (
           <div className="col-12 my-3 bg-danger text-white p-3">
             Something went wrong...
           </div>
         )}
+            </div>
+
+
+
+        {/* <div className="col-12 col-lg-3" style={{paddingBottom: "10px"}}>
+          <button className="btn btn-primary btn-block py-3" type="submit">
+            Add Thought
+          </button>
+        </div> */}
+
       </form>
     </div>
   );

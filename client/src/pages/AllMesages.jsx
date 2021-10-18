@@ -24,7 +24,7 @@ const AllMessages = () => {
           ) : (
             <MessageList
               messages={messages}
-              title="Some Feed for Message(s)..."
+              title="Viewing posts from all classes"
             />
           )}
         </div>

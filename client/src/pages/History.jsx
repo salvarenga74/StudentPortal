@@ -33,7 +33,7 @@ const HistoryMessages = () => {
           ) : (
             <MessageList
               messages={messages}
-              title="Some Feed for Message(s)..."
+              title="Posts from your History Class"
             />
           )}
         </div>
